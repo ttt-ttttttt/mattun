@@ -5,3 +5,28 @@ main{
 .box{
   margin-top: 10%;
 }
+
+.height{
+  height: 600px;
+}
+
+.list-group{
+  display: block !important;
+  overflow: auto;
+}
+
+.board{
+  overflow: auto;
+}
+
+.message{
+  margin-top: 5%;
+}
+
+.message.right{
+  max-width: 70%;
+}
+
+.message.left{
+  max-width: 70%;
+}
