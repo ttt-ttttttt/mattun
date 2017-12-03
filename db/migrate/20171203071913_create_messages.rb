@@ -1,8 +1,9 @@
 class CreateMessages < ActiveRecord::Migration[5.1]
   def change
     create_table :messages do |t|
-      t.references :user, foreign_key: true
-      t.references :talk, foreign_key: true
+      t.integer :user_id
+      t.integer :talk_id
+      t.text :body
 
       t.timestamps
     end

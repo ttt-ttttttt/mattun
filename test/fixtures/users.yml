@@ -3,7 +3,9 @@
 one:
   name: MyString
   password: MyString
+  comment: MyText
 
 two:
   name: MyString
   password: MyString
+  comment: MyText

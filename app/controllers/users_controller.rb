@@ -43,13 +43,34 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-  end
-
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to("/login")
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    @user.name = params[:name]
+    @user.password = params[:password]
+    @user.comment = params[:comment]
+    if @user.save
+      flash[:notice] = "ユーザー情報を編集しました"
+      redirect_to("/talks")
+    else
+      render("users/#{params[:id]}/edit")
+    end
+  end
+
+  def ensure_correct_user
+    if @current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to("/users/1/edit")
+    end
   end
 
 end

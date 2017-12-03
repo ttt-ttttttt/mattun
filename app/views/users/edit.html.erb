@@ -1,0 +1,27 @@
+  <h1> <%= @current_user.id %> </h1>
+    <h1> <%= params[:id] %> </h1>
+<% @user.errors.full_messages.each do |message| %>
+  <div class="form-error">
+    <%= message %>
+  </div>
+<% end %>
+<div class="card container bg-light w-50 h-50 box">
+  <div class="card-body">
+    <%= form_tag("/users/#{@user.id}/update") do %>
+      <h3 class="text-center">編集</h3>
+      <div class="form-group">
+        <label for="user">ユーザー名</label>
+        <input name="name" value="<%= @user.name %>" type="text" class="form-control" placeholder="ユーザー名" id="user">
+      </div>
+      <div class="form-group">
+        <label for="pswd">Password</label>
+        <input type="password" name="password" value="<%= @user.password %>" class="form-control" placeholder="Password" id="pswd">
+      </div>
+      <div class="form-group">
+        <label for="comment">一言コメント</label>
+        <input type="text" name="comment" value="<%= @user.comment %>" class="form-control" placeholder="コメント" id="comment">
+      </div>
+      <button type="submit" class="btn btn-primary">登録</button>
+    <% end %>
+  </div>
+</div>
