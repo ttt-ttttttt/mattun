@@ -16,8 +16,14 @@ class TalksController < ApplicationController
     @talks = TalkUser.where(user_id:@current_user.id).map do |r|
       r.talk
     end
+
     @message = Message.new
     @messages = Message.where(talk_id: params[:id])
+
+    @chat_users = Hash.new
+    TalkUser.where(talk_id: params[:id]).each do |user|
+     @chat_users[user.user.id]=user.user.name
+   end
   end
 
   def create
