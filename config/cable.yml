@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://h:p348ab0ce110b9e9577cf212cfa9bd2e88fe76ea30cfa77875497b564cd11f1ad@ec2-34-227-234-245.compute-1.amazonaws.com:57759
   channel_prefix: mattun_production
