@@ -26,6 +26,7 @@ class TalksController < ApplicationController
       talk_users_attributes: [{user_id: params[:user_id]},{user_id: @current_user.id}]
     )
     if @talk.save
+      MessageChannel.broadcast_to "message_channel_#{@talk.id}", @talk
       redirect_to("/talks/#{@talk.id}")
     else
       redirect_to("/talks/#{@talk.id}")
