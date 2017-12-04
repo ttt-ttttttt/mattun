@@ -28,7 +28,7 @@ class TalksController < ApplicationController
     if @talk.save
       redirect_to("/talks/#{@talk.id}")
     else
-      render("talks/index")
+      redirect_to("/talks/#{@talk.id}")
     end
   end
 
