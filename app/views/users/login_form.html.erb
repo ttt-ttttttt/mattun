@@ -1,9 +1,16 @@
 <% if @error_message %>
-  <div class="form-error">
-    <%= @error_message %>
-  </div>
+<div class="alert alert-warning" role="alert">
+  <%= @error_message %>
+</div>
 <% end %>
-<div class="card container bg-light w-50 h-50 box">
+
+<div class="card" style="width: 16%">
+  <div class="card-body">
+    ユーザー名:test </br> Password:test </br> で試すことができます。
+  </div>
+</div>
+
+<div class="card container bg-light w-50 h-50 box2">
   <div class="card-body">
     <%= form_tag("/login") do %>
       <h3 class="text-center">ログイン</h3>

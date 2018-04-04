@@ -1,9 +1,18 @@
 <% @user.errors.full_messages.each do |message| %>
-  <div class="form-error">
-    <%= message %>
-  </div>
+<div class="alert alert-danger" role="alert">
+  <%= message %>
+</div>
 <% end %>
-<div class="card container bg-light w-50 h-50 box">
+
+<div class="card " style="width: 21%">
+  <div class="card-body pos">
+    Ruby on Railsの練習用に作成したメッセージアプリです。
+    好きな名前とパスワードを用いて新規登録してみてください。すでに使われている名前は使えません。また、右上のログイン画面からテストすることもできます。
+  </div>
+</div>
+
+
+<div class="card container bg-light w-50 h-50 box2 po">
   <div class="card-body">
     <%= form_tag("/users/create") do %>
       <h3 class="text-center">新規登録</h3>

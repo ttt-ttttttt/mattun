@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  add_flash_types :success, :info, :warning, :danger
 
   before_action :set_current_user
 
@@ -10,14 +11,14 @@ class ApplicationController < ActionController::Base
 
  def authenticate_user
    if @current_user == nil
-     flash[:notice] = "ログインが必要です"
+     flash[:warning] = "ログインが必要です"
      redirect_to("/login")
    end
  end
 
  def forbid_login_user
    if @current_user
-     flash[:notice] = "すでにログインしています"
+     flash[:warning] = "すでにログインしています"
      redirect_to("/talks")
    end
  end

@@ -10,5 +10,12 @@ class MessageChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
+  def MessegeRecieve
+    #redirect_to("/talks/#{params[:talk_id]}")
+    #render("/talks/show")
+    #redirect_to("/")
+    #TalksController.show
+    #redirect_to("/talks/#{params[:talk_id]}")
+  end
 
 end

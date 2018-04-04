@@ -12,7 +12,7 @@ class TalksController < ApplicationController
   def show
     @users = User.all
     @talk = Talk.find_by(id: params[:id])
-    @talks = Talk.new
+    #@talks = Talk.new
     @talks = TalkUser.where(user_id:@current_user.id).map do |r|
       r.talk
     end
@@ -23,7 +23,7 @@ class TalksController < ApplicationController
     @chat_users = Hash.new
     TalkUser.where(talk_id: params[:id]).each do |user|
      @chat_users[user.user.id]=user.user.name
-   end
+    end
   end
 
   def create
@@ -32,7 +32,7 @@ class TalksController < ApplicationController
       talk_users_attributes: [{user_id: params[:user_id]},{user_id: @current_user.id}]
     )
     if @talk.save
-      MessageChannel.broadcast_to "message_channel_#{@talk.id}", @talk
+      #MessageChannel.broadcast_to "message_channel_#{@talk.id}", @talk
       redirect_to("/talks/#{@talk.id}")
     else
       redirect_to("/talks/#{@talk.id}")
